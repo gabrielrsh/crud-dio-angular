@@ -8,7 +8,7 @@ import { User } from '../models/user';
 })
 export class UserService {
 
-  private _apiUrl = 'https://sheet.best/api/sheets/4ecb7756-b195-4a87-843b-9f4cf9cb658e';
+  private apiUrl = 'https://sheet.best/api/sheets/4ecb7756-b195-4a87-843b-9f4cf9cb658e';
 
   // Ver httpInterceptors ex.: intercepta a chamada da Api adiciona o token e segue a chamada
   private httpOptions = {
@@ -22,11 +22,16 @@ export class UserService {
 
   // Retorna a lista de usuarios
   getUsers(): Observable<User[]> {
-    return this.httpClient.get<User[]>(this._apiUrl);
+    return this.httpClient.get<User[]>(this.apiUrl);
   }
 
   // Salva usuario
   postUser(user: User): Observable<User> {
-    return this.httpClient.post<User>(this._apiUrl, user, this.httpOptions);
+    return this.httpClient.post<User>(this.apiUrl, user, this.httpOptions);
   }
+
+  // Deleta usuario
+  deleteUser(id: number): Observable<User> {
+    return this.httpClient.delete<User>(`${this.apiUrl}/id/${id}`);
+  } 
 }
