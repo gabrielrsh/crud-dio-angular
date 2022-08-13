@@ -25,6 +25,11 @@ export class UserService {
     return this.httpClient.get<User[]>(this.apiUrl);
   }
 
+  // Retorna usuario pelo id
+  getUserById(id: string): Observable<User[]> {
+    return this.httpClient.get<User[]>(`${this.apiUrl}/id/${id}`);
+  }
+
   // Salva usuario
   postUser(user: User): Observable<User> {
     return this.httpClient.post<User>(this.apiUrl, user, this.httpOptions);
@@ -34,4 +39,9 @@ export class UserService {
   deleteUser(id: number): Observable<User> {
     return this.httpClient.delete<User>(`${this.apiUrl}/id/${id}`);
   } 
+
+  // Edita Usuario
+  updateUser(id: string, user: User): Observable<User> {
+    return this.httpClient.put<User>(`${this.apiUrl}/id/${id}`, user, this.httpOptions);
+  }
 }
