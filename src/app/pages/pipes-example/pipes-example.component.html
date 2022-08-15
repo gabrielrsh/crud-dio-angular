@@ -29,3 +29,20 @@
 
     <p>{{ pessoa | json}}</p>
 </div>
+
+<div class="container">
+    <div class="col">
+        <div class="row-6">
+            <div class="form-group">
+                <label for="texto">Print pipe test:</label>
+                <input type="texto" id="texto" #texto>
+                <button class="btn btn-primary" (click)="add(texto.value)">Add</button>
+            </div>
+        </div>
+        <div class="row-6">
+            <h3>Lista Formatada</h3>
+            <p>Tamanho da lista {{ nomes.length }}</p>
+            <p>{{ nomes | printList}}</p>
+        </div>
+    </div>
+</div>

@@ -17,6 +17,8 @@ export class PipesExampleComponent implements OnInit {
     profissao: 'Jogador de Futebol'
   }
 
+  nomes = ['Gabriel']
+
   constructor() { }
 
   ngOnInit(): void {
@@ -24,6 +26,10 @@ export class PipesExampleComponent implements OnInit {
 
   mudaValor():void {
     this.text = "novo texto";
+  }
+
+  add(text: string):void {
+    this.nomes.push(text);
   }
 
 }
