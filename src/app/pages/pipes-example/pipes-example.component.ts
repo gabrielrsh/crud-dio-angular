@@ -8,11 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class PipesExampleComponent implements OnInit {
 
   number = 0;
-  text = 'hello world';
+  text = 'hello world!';
+  data =  new Date;
+
+  pessoa = {
+    nome: 'Lionel Messi',
+    idade: 35,
+    profissao: 'Jogador de Futebol'
+  }
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  mudaValor():void {
+    this.text = "novo texto";
   }
 
 }
